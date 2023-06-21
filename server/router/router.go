@@ -26,14 +26,14 @@ func InitRouter(userHandler *user.Handler, wsHandler *ws.Handler) {
 		MaxAge: 12 * time.Hour,
 	}))
 
-	r.POST("/signup", userHandler.CreateUser)
-	r.POST("/login", userHandler.Login)
-	r.GET("/logout", userHandler.Logout)
+	r.POST("/api/signup", userHandler.CreateUser)
+	r.POST("/api/login", userHandler.Login)
+	r.GET("/api/logout", userHandler.Logout)
 
-	r.POST("/ws/createRoom", wsHandler.CreateRoom)
-	r.GET("/ws/joinRoom/:roomId", wsHandler.JoinRoom)
-	r.GET("/ws/getRooms", wsHandler.GetRooms)
-	r.GET("/ws/getClients/:roomId", wsHandler.GetClients)
+	r.POST("/api/ws/createRoom", wsHandler.CreateRoom)
+	r.GET("/api/ws/joinRoom/:roomId", wsHandler.JoinRoom)
+	r.GET("/api/ws/getRooms", wsHandler.GetRooms)
+	r.GET("/api/ws/getClients/:roomId", wsHandler.GetClients)
 }
 
 func Start(addr string) error {

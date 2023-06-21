@@ -32,7 +32,7 @@ const index = () => {
     const roomId = conn.url.split('/')[5]
     async function getUsers() {
       try {
-        const res = await fetch(`${API_URL}/ws/getClients/${roomId}`, {
+        const res = await fetch(`${API_URL}/api/ws/getClients/${roomId}`, {
           method: 'GET',
           headers: { 'Content-Type': 'application/json' },
         })

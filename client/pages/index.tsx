@@ -16,7 +16,7 @@ const index = () => {
 
   const getRooms = async () => {
     try {
-      const res = await fetch(`${API_URL}/ws/getRooms`, {
+      const res = await fetch(`${API_URL}/api/ws/getRooms`, {
         method: 'GET',
       })
 
@@ -38,7 +38,7 @@ const index = () => {
 
     try {
       setRoomName('')
-      const res = await fetch(`${API_URL}/ws/createRoom`, {
+      const res = await fetch(`${API_URL}/api/ws/createRoom`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         credentials: 'include',
@@ -58,7 +58,7 @@ const index = () => {
 
   const joinRoom = (roomId: string) => {
     const ws = new WebSocket(
-      `${WEBSOCKET_URL}/ws/joinRoom/${roomId}?userId=${user.id}&username=${user.username}`
+      `${WEBSOCKET_URL}/api/ws/joinRoom/${roomId}?userId=${user.id}&username=${user.username}`
     )
     if (ws.OPEN) {
       setConn(ws)
